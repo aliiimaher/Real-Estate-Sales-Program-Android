@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HouseActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/house_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:id="@+id/item_image_main"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/house1" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="start"
+            android:layout_margin="24dp"
+            android:outlineProvider="none"
+            android:padding="20dp"
+            app:cardBackgroundColor="#A8ffffff"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/icon_back_to_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_box"
+                android:contentDescription="heart"
+                android:padding="12dp"
+                android:src="@drawable/back" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="end"
+            android:layout_margin="24dp"
+            android:outlineProvider="none"
+            android:padding="20dp"
+            app:cardBackgroundColor="#A8ffffff"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/icon_heart_love_the_house"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_box"
+                android:contentDescription="heart"
+                android:padding="12dp"
+                android:src="@drawable/heart" />
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/house_pic"
+        android:layout_marginHorizontal="20dp">
+
+        <RelativeLayout
+            android:id="@+id/text_house_sub_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/text_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$350.000"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_price"
+                android:text="Lambers, Ml 500, EF"
+                android:textColor="#808080" />
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_time_ago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/text_house_sub_info"
+            android:background="@drawable/border_box"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="12dp"
+            android:text="20 hours ago"
+            android:textSize="12dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_house_sub_info"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/text_house_info_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="House Information"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerHouseInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_house_info_title"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_house_info"/>
+
+            <TextView
+                android:id="@+id/text_house_full_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/recyclerHouseInfo"
+                android:layout_marginTop="24dp"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                android:textColor="@color/black" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="640dp"
+        android:layout_centerHorizontal="true">
+
+        <RelativeLayout
+            android:id="@+id/hover_btn_msg"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/on_page_btn_box"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/text_msg_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/icon_msg"
+                android:text="Message"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/icon_msg"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_email" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/hover_btn_call"
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/hover_btn_msg"
+            android:background="@drawable/on_page_btn_box"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/text_call_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_toRightOf="@id/icon_call"
+                android:text="Call"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <ImageView
+                android:id="@+id/icon_call"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_phone" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

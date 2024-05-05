@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp">
+
+
+            <RelativeLayout
+                android:id="@+id/icon_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangular_background"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="menuIcon"
+                    android:src="@drawable/menu" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/rectangular_background"
+                android:padding="12dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:contentDescription="searchIcon"
+                    android:src="@drawable/search" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/header"
+            android:layout_marginTop="20dp"
+            android:text="City" />
+
+        <RelativeLayout
+            android:id="@+id/relative_city_name"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/text_city">
+
+            <TextView
+                android:id="@+id/text_city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:text="San Fransisco"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/icon_setting"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/setting" />
+
+            <View
+                android:id="@+id/line_city_name"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:background="#ECECEC" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerTags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/relative_city_name"
+            android:layout_marginVertical="8dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_tag" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recyclerTags"
+            tools:listitem="@layout/item_house" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hover_btn_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="640dp"
+        app:cardBackgroundColor="#A8000435"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="136dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/on_page_btn_box"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/icon_map"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_map" />
+
+            <TextView
+                android:id="@+id/text_map_icon_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/icon_map"
+                android:text="Map View"
+                android:textAlignment="center"
+                android:textColor="#FEFEFE" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
