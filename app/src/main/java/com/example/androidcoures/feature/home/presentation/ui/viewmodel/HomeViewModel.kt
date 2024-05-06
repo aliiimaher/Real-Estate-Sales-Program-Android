@@ -17,11 +17,15 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
     //region Methods
     fun fetchAllHouses() {
         val response = repository.fetchAllHouses()
+//            .also {
+//                _houses.value = it
+//            }
+        _houses.value = response
     }
     //endregion
 }
 
-class PostModule {
+class HouseModule {
     companion object {
         val watchRepository: HomeRepository by lazy {
             HomeRepository()
@@ -29,11 +33,11 @@ class PostModule {
     }
 }
 
-class PostViewModelFactory : ViewModelProvider.Factory {
+class HouseViewModelFactory : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(PostModule.watchRepository) as T
+            return HomeViewModel(HouseModule.watchRepository) as T
         }
         throw java.lang.IllegalArgumentException("wrong dependency")
     }

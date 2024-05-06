@@ -6,13 +6,11 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcoures.databinding.HouseRecyclerViewBinding
-import com.example.androidcoures.feature.home.domain.data.model.HouseResponse.House
 import com.example.androidcoures.feature.home.domain.data.model.Tag
 import com.example.androidcoures.feature.home.presentation.ui.adapter.HouseAdapter
 import com.example.androidcoures.feature.home.presentation.ui.adapter.TagAdapter
 import com.example.androidcoures.feature.home.presentation.ui.viewmodel.HomeViewModel
-import com.example.androidcoures.feature.home.presentation.ui.viewmodel.PostModule
-import com.example.androidcoures.feature.home.presentation.ui.viewmodel.PostViewModelFactory
+import com.example.androidcoures.feature.home.presentation.ui.viewmodel.HouseViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,18 +35,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initialViewModel() {
-        viewModel = ViewModelProvider(this, PostViewModelFactory())[HomeViewModel::class.java]
+        viewModel = ViewModelProvider(this, HouseViewModelFactory())[HomeViewModel::class.java]
     }
 
     private fun configViewModel() {
-        viewModel.houses.observe(this) {houses ->
-//            val list = houses
-            val adapter = HouseAdapter(houses as ArrayList<House>)
-
+        viewModel.houses.observe(this) { houses ->
+            val adapter = HouseAdapter(houses)
             binding.recyclerMain.adapter = adapter
             binding.recyclerMain.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
         }
 
 //        val houseList = arrayListOf(

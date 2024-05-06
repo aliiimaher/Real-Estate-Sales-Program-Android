@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.androidcoures.HouseActivity
 import com.example.androidcoures.R
 import com.example.androidcoures.databinding.ItemHouseBinding
+import com.example.androidcoures.feature.home.domain.data.model.HouseResponse
 import com.example.androidcoures.feature.home.domain.data.model.HouseResponse.House
 
-class HouseAdapter(private val houses: ArrayList<House>) :
+class HouseAdapter(private val houses: List<HouseResponse.House>) :
     RecyclerView.Adapter<HouseAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemHouseBinding) :
@@ -23,13 +24,13 @@ class HouseAdapter(private val houses: ArrayList<House>) :
 //            }
 //        }
 
-        fun bindData(position: Int) {
-            binding.itemImageMain.setImageResource(houses[position].image)
-            binding.iconHeartLoveTheHouse.setImageResource(R.drawable.heart)
-            binding.itemTextPrice.text = houses[position].price
-            binding.itemTextAddress.text = houses[position].address
-            binding.itemHouseSubInfo.text = houses[position].subInfo
-            //            binding.root.setOnClickListener {}
+        //        fun bindData(position: Int) {
+//            binding.itemImageMain.setImageResource(houses[position].image)
+//            binding.iconHeartLoveTheHouse.setImageResource(R.drawable.heart)
+//            binding.itemTextPrice.text = houses[position].price
+//            binding.itemTextAddress.text = houses[position].address
+//            binding.itemHouseSubInfo.text = houses[position].subInfo
+//            //            binding.root.setOnClickListener {}
 //            binding.root.setOnClickListener(View.OnClickListener {
 //                override fun onClick(v: View) {
 //                    val intent = Intent(series.getApplicationContext(), HouseActivity::class.java);
@@ -40,6 +41,13 @@ class HouseAdapter(private val houses: ArrayList<House>) :
 //                    mContext.startActivity(intent);
 //                }
 //            })
+//        }
+        fun bindData(item: HouseResponse.House) {
+            binding.itemImageMain.setImageResource(item.image)
+            binding.iconHeartLoveTheHouse.setImageResource(R.drawable.heart)
+            binding.itemTextPrice.text = item.price
+            binding.itemTextAddress.text = item.address
+            binding.itemHouseSubInfo.text = item.subInfo
         }
     }
 
@@ -54,7 +62,8 @@ class HouseAdapter(private val houses: ArrayList<House>) :
 //            holder.bindData(position)
 //        }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindData(position)
+        val data = houses[position]
+        holder.bindData(data)
 
         // todo: maybe need change later
         holder.itemView.setOnClickListener {
