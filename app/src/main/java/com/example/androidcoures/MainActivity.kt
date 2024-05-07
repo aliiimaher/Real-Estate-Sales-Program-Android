@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initialViewModel() {
         viewModel = ViewModelProvider(this, HouseViewModelFactory())[HomeViewModel::class.java]
+        viewModel.fetchAllHouses()
     }
 
     private fun configViewModel() {
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.iconMenu.setOnClickListener()
         {
-            val intent = Intent(this, HouseActivity::class.java).also {
+            Intent(this, HouseActivity::class.java).also {
                 startActivity(it)
             }
         }
