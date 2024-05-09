@@ -4,9 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidcoures.databinding.ItemHouseInfoBinding
-import com.example.androidcoures.feature.home.domain.data.model.HouseInfo
+import com.example.androidcoures.feature.home.domain.data.model.HouseInfoResponse.HouseInfo
 
-class HouseInfoAdapter(private val houseInfos: ArrayList<HouseInfo>) :
+class HouseInfoAdapter(private val houseInfos: List<HouseInfo>) :
     RecyclerView.Adapter<HouseInfoAdapter.ViewHolder>() {
     inner class ViewHolder(private val binding: ItemHouseInfoBinding) :
         RecyclerView.ViewHolder(binding.root) {
