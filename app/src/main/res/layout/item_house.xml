@@ -68,6 +68,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="16dp"
             android:layout_toRightOf="@+id/item_text_price"
+            android:fontFamily="@font/asap"
             android:text="Jenison, Ml 49428, SF"
             android:textSize="12sp" />
 
@@ -78,6 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/sub_price_address"
+        android:fontFamily="@font/asap"
         android:text="4 bedrooms / 2 bathrooms / 1.416 ft^2"
         android:textColor="@color/black"
         android:textSize="12sp" />

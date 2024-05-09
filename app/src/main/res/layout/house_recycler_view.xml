@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:paddingTop="16dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -15,6 +15,7 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="24dp"
             android:paddingVertical="8dp">
 
 
@@ -56,13 +57,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/header"
             android:layout_marginTop="20dp"
+            android:paddingHorizontal="24dp"
             android:text="City" />
 
         <RelativeLayout
             android:id="@+id/relative_city_name"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_below="@id/text_city">
+            android:layout_below="@id/text_city"
+            android:paddingHorizontal="24dp">
 
             <TextView
                 android:id="@+id/text_city_name"
@@ -70,7 +73,8 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_centerInParent="true"
-                android:text="San Fransisco"
+                android:fontFamily="@font/cabin_medium"
+                android:text="San Francisco"
                 android:textColor="@color/black"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -98,7 +102,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_city_name"
             android:layout_marginVertical="8dp"
+            android:clipToPadding="false"
             android:orientation="horizontal"
+            android:paddingLeft="24dp"
             tools:listitem="@layout/item_tag" />
 
 
@@ -107,6 +113,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/recyclerTags"
+            android:clipToPadding="false"
+            android:paddingHorizontal="24dp"
             tools:listitem="@layout/item_house" />
 
     </RelativeLayout>

@@ -8,7 +8,6 @@ import com.example.androidcoures.HouseActivity
 import com.example.androidcoures.R
 import com.example.androidcoures.databinding.ItemHouseBinding
 import com.example.androidcoures.feature.home.domain.data.model.HouseResponse
-import com.example.androidcoures.feature.home.domain.data.model.HouseResponse.House
 
 class HouseAdapter(private val houses: List<HouseResponse.House>) :
     RecyclerView.Adapter<HouseAdapter.ViewHolder>() {
@@ -16,32 +15,6 @@ class HouseAdapter(private val houses: List<HouseResponse.House>) :
     inner class ViewHolder(private val binding: ItemHouseBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-//        init {
-//            binding.root.setOnClickListener {
-//                val intent = Intent(this, HouseActivity::class.java)
-//                intent.putExtra("house_object", houses[adapterPosition].image)
-//                context.startActivity(intent)
-//            }
-//        }
-
-        //        fun bindData(position: Int) {
-//            binding.itemImageMain.setImageResource(houses[position].image)
-//            binding.iconHeartLoveTheHouse.setImageResource(R.drawable.heart)
-//            binding.itemTextPrice.text = houses[position].price
-//            binding.itemTextAddress.text = houses[position].address
-//            binding.itemHouseSubInfo.text = houses[position].subInfo
-//            //            binding.root.setOnClickListener {}
-//            binding.root.setOnClickListener(View.OnClickListener {
-//                override fun onClick(v: View) {
-//                    val intent = Intent(series.getApplicationContext(), HouseActivity::class.java);
-//                    String url = response.get(position).getUrl();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString(&quot;key_1&quot;,url);
-//                    intent.putExtras(bundle);
-//                    mContext.startActivity(intent);
-//                }
-//            })
-//        }
         fun bindData(item: HouseResponse.House) {
             binding.itemImageMain.setImageResource(item.image)
             binding.iconHeartLoveTheHouse.setImageResource(R.drawable.heart)
@@ -58,9 +31,6 @@ class HouseAdapter(private val houses: List<HouseResponse.House>) :
 
     override fun getItemCount(): Int = houses.size
 
-    //        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//            holder.bindData(position)
-//        }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = houses[position]
         holder.bindData(data)
@@ -72,6 +42,12 @@ class HouseAdapter(private val houses: List<HouseResponse.House>) :
                 it.putExtra("house_price", houses[position].price)
                 it.putExtra("house_address", houses[position].address)
                 it.putExtra("house_subInfo", houses[position].subInfo)
+                it.putExtra("house_square_foot", houses[position].squareFoot)
+                it.putExtra("house_bedrooms", houses[position].bedrooms)
+                it.putExtra("house_bathrooms", houses[position].bathrooms)
+                it.putExtra("house_toilet", houses[position].toilet)
+                it.putExtra("house_garage", houses[position].garage)
+                it.putExtra("house_elevator", houses[position].elevator)
 
                 holder.itemView.context.startActivity(it)
             }

@@ -16,11 +16,7 @@ class HomeViewModel(private val repository: HomeRepository) : ViewModel() {
 
     //region Methods
     fun fetchAllHouses() {
-        val response = repository.fetchAllHouses()
-//            .also {
-//                _houses.value = it
-//            }
-        _houses.value = response
+        _houses.postValue(repository.fetchAllHouses())
     }
     //endregion
 }
