@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcoures.databinding.ActivityHouseBinding
@@ -20,6 +21,7 @@ class HouseActivity : AppCompatActivity() {
     //region lifeCycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        removeHeader()
         initialBinding()
         initialViewModel()
         configViewModel()
@@ -43,6 +45,11 @@ class HouseActivity : AppCompatActivity() {
     //endregion
 
     //region methods
+    private fun removeHeader() {
+        window.decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        getSupportActionBar()?.hide();
+    }
+
     @SuppressLint("SetTextI18n")
     private fun initialBinding() {
         binding = ActivityHouseBinding.inflate(layoutInflater)

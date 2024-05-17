@@ -2,6 +2,7 @@ package com.example.androidcoures
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidcoures.databinding.HouseRecyclerViewBinding
@@ -9,20 +10,18 @@ import com.example.androidcoures.feature.home.presentation.ui.adapter.HouseAdapt
 import com.example.androidcoures.feature.home.presentation.ui.adapter.TagAdapter
 import com.example.androidcoures.feature.home.presentation.ui.viewmodel.HomeViewModel
 import com.example.androidcoures.feature.home.presentation.ui.viewmodel.HouseViewModelFactory
-import com.example.androidcoures.feature.home.presentation.ui.viewmodel.TagViewModel
-import com.example.androidcoures.feature.home.presentation.ui.viewmodel.TagViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
     //region properties
     private lateinit var binding: HouseRecyclerViewBinding
     private lateinit var viewModel: HomeViewModel
-    private lateinit var tagViewModel: TagViewModel
     //endregion
 
     //region lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        removeHeader()
         initialBinding()
         initialViewModel()
         configViewModel()
@@ -30,6 +29,11 @@ class MainActivity : AppCompatActivity() {
     //endregion
 
     //region methods
+    private fun removeHeader() {
+        window.decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        getSupportActionBar()?.hide();
+    }
+
     private fun initialBinding() {
         binding = HouseRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -38,8 +42,10 @@ class MainActivity : AppCompatActivity() {
     private fun initialViewModel() {
         viewModel = ViewModelProvider(this, HouseViewModelFactory())[HomeViewModel::class.java]
         viewModel.fetchAllHouses()
-        tagViewModel = ViewModelProvider(this, TagViewModelFactory())[TagViewModel::class.java]
-        tagViewModel.fetchAllTags()
+        viewModel.fetchAllTags()
+
+//        tagViewModel = ViewModelProvider(this, TagViewModelFactory())[TagViewModel::class.java]
+//        tagViewModel.fetchAllTags()
     }
 
     private fun configViewModel() {
@@ -50,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         }
 
-        tagViewModel.tags.observe(this) { tags ->
+        viewModel.tags.observe(this) { tags ->
             val adapter = TagAdapter(tags)
             binding.recyclerTags.adapter = adapter
             binding.recyclerTags.layoutManager =
